@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Play Console Reviewer Demo — Family Curator</title>
+  <meta name="description" content="Official Google Play Reviewer Demonstration Video for Family Curator (com.familycurator.family_photos_backup) highlighting FOREGROUND_SERVICE_DATA_SYNC and READ_MEDIA permissions.">
+  <link rel="icon" type="image/png" href="app_icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1329;
+      --card-bg: rgba(23, 37, 84, 0.45);
+      --card-border: rgba(56, 189, 248, 0.15);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --teal: #14b8a6;
+      --blue: #38bdf8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px 80px;
+      background-image: 
+        radial-gradient(circle at 20% 15%, rgba(56, 189, 248, 0.12), transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.1), transparent 50%);
+      background-attachment: fixed;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(56, 189, 248, 0.25);
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+    }
+    .actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+    }
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: none;
+    }
+    .btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.9);
+    }
+    .breakdown-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .breakdown-card h2 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .timestamp {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.9rem;
+      background: rgba(20, 184, 166, 0.15);
+      padding: 4px 10px;
+      border-radius: 8px;
+      align-self: flex-start;
+      white-space: nowrap;
+    }
+    .timeline-content h4 {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      margin-bottom: 4px;
+    }
+    .timeline-content p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">🎬 GOOGLE PLAY CONSOLE REVIEWER DEMO</div>
+      <h1>Family Curator Live Device Demo</h1>
+      <div class="subtitle">Demonstrating Background Media Sync Notification &amp; Scoped Storage Curation</div>
+    </header>
+
+    <div class="video-card">
+      <div class="video-wrapper">
+        <video controls autoplay muted playsinline loop>
+          <source src="reviewer_demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="actions-bar">
+        <a href="reviewer_demo.mp4" download="family_curator_reviewer_demo.mp4" class="btn">⬇️ Download Demo Video (4.6 MB MP4)</a>
+        <a href="index.html" class="btn btn-secondary">📜 Read Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="breakdown-card">
+      <h2>Video Timeline Breakdown (28 Seconds)</h2>
+
+      <div class="timeline-item">
+        <div class="timestamp">0:00 – 0:08</div>
+        <div class="timeline-content">
+          <h4>Scanner Dashboard &amp; Media Scope</h4>
+          <p>Displays granted media access (107,564 WhatsApp Photos, 1,898 WhatsApp Videos), Smart Delta backlog progress, and initiation of continuous on-device scanning.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timestamp">0:08 – 0:18</div>
+        <div class="timeline-content">
+          <h4>Foreground Service Notification Shade</h4>
+          <p>The Android status bar is expanded to verify compliance with Google Play's <code>FOREGROUND_SERVICE_DATA_SYNC</code> policy. Displays the persistent <em>"Scanning WhatsApp Media..."</em> notification with live progress and interactive <strong>Pause</strong> / <strong>Stop</strong> buttons.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timestamp">0:18 – 0:28</div>
+        <div class="timeline-content">
+          <h4>Review Queue Approval &amp; Curated Copy</h4>
+          <p>Navigates to the Review Queue showing matched candidate cards with confidence scores, approves a candidate photo, and shows the verified copy safely stored in <code>Pictures/FamilyCurator/</code> while leaving original WhatsApp media untouched.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 Family Curator • 100% Offline AI Gatekeeper • Package: <code>com.familycurator.family_photos_backup</code>
+    </footer>
+  </div>
+</body>
+</html>
