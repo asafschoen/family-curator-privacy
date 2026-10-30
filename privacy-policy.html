@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy & Biometric Data Disclosure — Family Curator</title>
-  <meta name="description" content="Official Privacy Policy and On-Device Biometric Data Disclosure for Family Curator (com.familycurator.family_photos_backup). 100% offline, zero network calls, copy-only scoped storage.">
+  <title>Privacy Policy & Biometric Data Disclosure — Kipik</title>
+  <meta name="description" content="Official Privacy Policy and On-Device Biometric Data Disclosure for Kipik (com.familycurator.family_photos_backup). 100% offline, zero network calls, copy-only scoped storage.">
   <link rel="icon" type="image/png" href="app_icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,9 +216,9 @@
     <header>
       <div class="badge">🛡️ 100% OFFLINE &amp; PRIVATE AIRGAPPED ARCHITECTURE</div>
       <div class="app-brand">
-        <img src="app_icon.png" alt="Family Curator Icon" class="app-icon">
+        <img src="app_icon.png" alt="Kipik Icon" class="app-icon">
         <div style="text-align: left;">
-          <h1>Family Curator</h1>
+          <h1>Kipik</h1>
           <div class="subtitle">AI Family Photo Gatekeeper for WhatsApp</div>
         </div>
       </div>
@@ -226,13 +226,13 @@
     </header>
 
     <div class="hero-banner">
-      <h2>🔒 The Family Curator Privacy Pledge</h2>
-      <p>Your family memories, photos, and biometric data <strong>NEVER leave your physical device</strong>. Family Curator operates as an airgapped on-device AI gatekeeper. We do not have servers, user accounts, databases in the cloud, or analytics trackers. Zero bytes of personal or biometric data are transmitted over the internet.</p>
+      <h2>🔒 The Kipik Privacy Pledge</h2>
+      <p>Your family memories, photos, and biometric data <strong>NEVER leave your physical device</strong>. Kipik operates as an airgapped on-device AI gatekeeper. We do not have servers, user accounts, databases in the cloud, or analytics trackers. Zero bytes of personal or biometric data are transmitted over the internet.</p>
     </div>
 
     <div class="section-card">
       <h3><span class="icon">📡</span> 1. Zero Network Calls &amp; No Internet Permission</h3>
-      <p>Family Curator does <strong>NOT</strong> declare, request, or use the <code>android.permission.INTERNET</code> permission in its Android application manifest (<code>AndroidManifest.xml</code>).</p>
+      <p>Kipik does <strong>NOT</strong> declare, request, or use the <code>android.permission.INTERNET</code> permission in its Android application manifest (<code>AndroidManifest.xml</code>).</p>
       <p>Because the application completely lacks network permissions at the operating system level, it is physically and technically impossible for the app to:</p>
       <ul>
         <li>Upload, stream, or synchronize your images or videos to any remote server or cloud service.</li>
@@ -240,12 +240,12 @@
         <li>Collect crash telemetry, usage analytics, device identifiers, or tracking metrics.</li>
         <li>Display network advertisements or connect to third-party ad networks.</li>
       </ul>
-      <p>You can verify this in Android Settings &gt; Apps &gt; Family Curator &gt; Permissions, where Internet access is completely absent.</p>
+      <p>You can verify this in Android Settings &gt; Apps &gt; Kipik &gt; Permissions, where Internet access is completely absent.</p>
     </div>
 
     <div class="section-card">
       <h3><span class="icon">🧠</span> 2. On-Device Biometric Face Recognition</h3>
-      <p>Family Curator utilizes lightweight on-device machine learning models (MobileFaceNet and Face Landmark Alignment) to detect and group family members:</p>
+      <p>Kipik utilizes lightweight on-device machine learning models (MobileFaceNet and Face Landmark Alignment) to detect and group family members:</p>
       <ul>
         <li><strong>Local Inferences Only:</strong> All face detection, 5-point landmark eye alignment, and 192-dimensional floating-point embedding computations are executed 100% on-device inside background Dart Isolates and native threads.</li>
         <li><strong>Encapsulated Sandbox Storage:</strong> Reference embeddings and aligned 112x112 pixel face crops are stored strictly in the application’s private SQLite database (<code>family_curator.db</code>) within internal app sandbox storage.</li>
@@ -255,9 +255,9 @@
 
     <div class="section-card">
       <h3><span class="icon">📂</span> 3. Scoped Storage Compliance &amp; Copy-Only Strategy</h3>
-      <p>To rescue family memories buried in WhatsApp chat folders, Family Curator requests standard granular Android media permissions (<code>READ_MEDIA_IMAGES</code> and <code>READ_MEDIA_VIDEO</code> on Android 13+ / API 33+; <code>READ_EXTERNAL_STORAGE</code> on earlier versions):</p>
+      <p>To rescue family memories buried in WhatsApp chat folders, Kipik requests standard granular Android media permissions (<code>READ_MEDIA_IMAGES</code> and <code>READ_MEDIA_VIDEO</code> on Android 13+ / API 33+; <code>READ_EXTERNAL_STORAGE</code> on earlier versions):</p>
       <ul>
-        <li><strong>Strictly Read &amp; Copy:</strong> Family Curator operates on a non-destructive <em>Copy-Only</em> policy. Approved photos and videos are copied to <code>Pictures/FamilyCurator/</code>.</li>
+        <li><strong>Strictly Read &amp; Copy:</strong> Kipik operates on a non-destructive <em>Copy-Only</em> policy. Approved photos and videos are copied to <code>Pictures/Kipik/</code>.</li>
         <li><strong>WhatsApp Media is Untouched:</strong> The app <strong>NEVER</strong> deletes, moves, renames, alters, or modifies original files located in WhatsApp media folders (e.g., <code>Android/media/com.whatsapp/...</code> or <code>WhatsApp/Media/...</code>).</li>
         <li><strong>No Full Storage Access:</strong> The app does <strong>NOT</strong> request or require <code>MANAGE_EXTERNAL_STORAGE</code>.</li>
         <li><strong>EXIF Capture Date Repair:</strong> When copying files, the app inspects WhatsApp filename timestamps and populates standard EXIF capture date tags (<code>TAG_DATETIME_ORIGINAL</code>) on the destination copy so memories sort chronologically in your gallery.</li>
@@ -266,7 +266,7 @@
 
     <div class="section-card">
       <h3><span class="icon">🔄</span> 4. Foreground Service Justification (Data Sync)</h3>
-      <p>Family Curator declares the <code>FOREGROUND_SERVICE_DATA_SYNC</code> permission to perform continuous offline WhatsApp media backlog scanning in the background:</p>
+      <p>Kipik declares the <code>FOREGROUND_SERVICE_DATA_SYNC</code> permission to perform continuous offline WhatsApp media backlog scanning in the background:</p>
       <ul>
         <li><strong>User-Initiated:</strong> The background scanning service only starts when you tap "Start Continuous Scan".</li>
         <li><strong>Persistent Visibility:</strong> While active, the service displays a mandatory, non-dismissible notification stating <em>"Scanning WhatsApp Media..."</em> with real-time percentage progress.</li>
@@ -277,20 +277,20 @@
 
     <div class="section-card">
       <h3><span class="icon">💳</span> 5. In-App Purchases &amp; Google Play Billing</h3>
-      <p>Family Curator offers an optional one-time lifetime Pro unlock (<code>family_curator_pro_lifetime</code>) via the official Google Play Billing library:</p>
+      <p>Kipik offers an optional one-time lifetime Pro unlock (<code>family_curator_pro_lifetime</code>) via the official Google Play Billing library:</p>
       <ul>
         <li>All billing transactions are handled exclusively through secure local inter-process communication (IPC) with the Google Play Store app.</li>
-        <li>Family Curator does not collect, receive, or store your payment details, credit card numbers, billing addresses, or Google account credentials.</li>
+        <li>Kipik does not collect, receive, or store your payment details, credit card numbers, billing addresses, or Google account credentials.</li>
         <li>Pro entitlement status is cached locally in the on-device SQLite database.</li>
       </ul>
     </div>
 
     <div class="section-card">
       <h3><span class="icon">🗑️</span> 6. Data Retention, Portability &amp; Deletion Rights</h3>
-      <p>Because Family Curator has no cloud servers or external accounts, you maintain complete, sovereign control over your data at all times:</p>
+      <p>Because Kipik has no cloud servers or external accounts, you maintain complete, sovereign control over your data at all times:</p>
       <ul>
         <li><strong>In-App Clear:</strong> You can purge reference faces, reset scanned history, or delete curated backups at any time directly in <em>Settings &gt; Storage &amp; Maintenance</em>.</li>
-        <li><strong>Complete App Removal:</strong> Uninstalling Family Curator permanently and immediately obliterates all face embeddings, profile metadata, and local database tables from your device.</li>
+        <li><strong>Complete App Removal:</strong> Uninstalling Kipik permanently and immediately obliterates all face embeddings, profile metadata, and local database tables from your device.</li>
       </ul>
     </div>
 
@@ -308,7 +308,7 @@
     </div>
 
     <footer>
-      &copy; 2026 Family Curator. Built with privacy-first on-device AI. 100% Offline.
+      &copy; 2026 Kipik. Built with privacy-first on-device AI. 100% Offline.
     </footer>
   </div>
 </body>
